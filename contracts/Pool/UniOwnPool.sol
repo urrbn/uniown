@@ -84,7 +84,7 @@ contract UniOwnPool{
     mapping(address => bool) public isParticipated;
 
 
-    constructor(uint256 _maxAmount, address _collection, uint256 _tokenId, uint256 _fundrasingTime, uint256 _minParticipation, uint256 _itemId, address _marketplace) {
+    function init(uint256 _maxAmount, address _collection, uint256 _tokenId, uint256 _fundrasingTime, uint256 _minParticipation, uint256 _itemId, address _marketplace) public {
         require(_maxAmount != 0, "Total Amount cant be 0");
         require(_collection != address(0), "Address 0 validation");
         require(_minParticipation != 0, "Min Participation cant be 0");

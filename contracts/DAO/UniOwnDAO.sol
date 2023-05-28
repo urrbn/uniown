@@ -3,7 +3,7 @@ pragma solidity >=0.8.4;
 import './UniOwnDAOtoken.sol';
 import '../utils/NFTreceiver.sol';
 import '../utils/ReentrancyGuard.sol';
-import 'hardhat/console.sol';
+
 
 
 
@@ -317,8 +317,6 @@ contract UniOwnDAO is UniOwnDAOtoken, NFTreceiver, ReentrancyGuard {
         // }
 
         uint96 weight = getPriorVotes(signer, prop.creationTime);
-
-        console.log(weight, 'weight');
         
         // this is safe from overflow because `yesVotes` and `noVotes` are capped by `totalSupply`
         // which is checked for overflow in `UniOwnDAOtoken` contract

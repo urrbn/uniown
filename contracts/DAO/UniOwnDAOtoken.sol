@@ -1,6 +1,6 @@
 
 pragma solidity >=0.8.4;
-import 'hardhat/console.sol';
+
 
 abstract contract UniOwnDAOtoken {
     /*///////////////////////////////////////////////////////////////
@@ -136,9 +136,6 @@ abstract contract UniOwnDAOtoken {
     }
 
     function transfer(address to, uint256 amount) public payable notPaused virtual returns (bool) {
-
-        console.log(balanceOf[msg.sender], 'balanceOf[msg.sender]');
-        console.log(amount, 'amount]');
         balanceOf[msg.sender] -= amount;
 
         // cannot overflow because the sum of all user

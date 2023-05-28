@@ -3,12 +3,19 @@
 pragma solidity ^0.8.7;
 
 import "./UniOwnPool.sol";
+import "@openzeppelin/contracts/proxy/Clones.sol";
 
 
 contract UniOwnPoolFactory{
 
     address[] public allPools;
     address public marketplace = 0xBAdea772bD5F1B8b0271560160DD0f62cBc051c9;
+    address public immutable masterPool;
+
+
+    constructor(address masterPool_) {
+        masterPool = masterPool_;
+    }
 
 
     function deployPool(
@@ -19,7 +26,9 @@ contract UniOwnPoolFactory{
         uint256 _minParticipation, 
         uint256 _itemId) 
         public {
-        UniOwnPool pool = new UniOwnPool(
+
+        address clone = Clones.clone(masterPool);
+        UniOwnPool(clone).init(
             _maxAmount,
             _collection,
             _tokenId,
@@ -28,7 +37,8 @@ contract UniOwnPoolFactory{
             _itemId,
             marketplace
         );
-        allPools.push(address(pool));
+
+        allPools.push(address(clone));
     }
 
     // Function to get all airdrops

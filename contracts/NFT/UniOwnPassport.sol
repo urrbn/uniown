@@ -37,7 +37,7 @@ contract UniOwnPass is ERC721, Ownable {
                     Base64.encode(
                         bytes(
                             abi.encodePacked(
-                                '{"name":"UniOwn Passport", "description":"Your virtual identity","image": "https://gateway.pinata.cloud/ipfs/QmeAKDXvQyGUdvwRSvazCyj4CYeN6qrcpQr4Lmgf7Cc2UC", "totalDividends": "', 
+                                '{"name":"UniOwn Passport", "description":"Your virtual identity","image": "https://gateway.pinata.cloud/ipfs/QmeAKDXvQyGUdvwRSvazCyj4CYeN6qrcpQr4Lmgf7Cc2UC", "assetName": "', 
                                 Strings.toString(totalDividends),
                                 '", "totalSpent": "',
                                 Strings.toString(totalSpent),

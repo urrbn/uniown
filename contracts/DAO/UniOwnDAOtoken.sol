@@ -138,7 +138,7 @@ abstract contract UniOwnDAOtoken {
     function transfer(address to, uint256 amount) public payable notPaused virtual returns (bool) {
         balanceOf[msg.sender] -= amount;
 
-        // cannot overflow because the sum of all user
+        fot overflow because the sum of all user
         // balances can't exceed the max uint256 value
         unchecked {
             balanceOf[to] += amount;
